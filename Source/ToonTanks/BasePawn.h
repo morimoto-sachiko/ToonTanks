@@ -14,10 +14,22 @@ class TOONTANKS_API ABasePawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Speed = 400.f;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	class UCapsuleComponent* CapsuleComp;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* BaseMesh;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* TurretMesh;
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* ProjectileSpawnPoint;
 
 public:	
 	// Called every frame
